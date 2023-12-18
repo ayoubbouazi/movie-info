@@ -1,7 +1,7 @@
 .container-movie-gallery {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	gap: 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
 }
 
 .container .movie {
@@ -50,4 +50,22 @@
 
 .pagination button:hover {
   background: #137c32;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container-movie-gallery {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .container-movie-gallery .movie .title {
+    font-size: 14px;
+  }
+
+  .pagination {
+    gap: 10px;
+  }
 }
