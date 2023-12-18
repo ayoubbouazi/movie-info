@@ -39,24 +39,62 @@ const MovieDetails = () => {
       <div className="movie-info">
         <h2 className="title">{movie.title}</h2>
         <p className="overview">{movie.overview}</p>
+
         <p className="release-date">
-          Fecha de lanzamiento: {movie.release_date}
+          <b>Fecha de lanzamiento:</b> {movie.release_date}
         </p>
         <p className="vote-average">
-          Calificación promedio: {movie.vote_average}
+          <b>Calificación promedio:</b> {movie.vote_average}
         </p>
-
-        <p>Duración: {movie.runtime} minutos</p>
-        <p>Recaudación: ${movie.revenue}</p>
-        <p>Presupuesto: ${movie.budget}</p>
         {/*Verify and map the properties if they are defined */}
         {movie.genres && movie.genres.length > 0 && (
-          <p>Géneros: {movie.genres.map((genre) => genre.name).join(", ")}</p>
+          <p>
+            <b>Géneros:</b> {movie.genres.map((genre) => genre.name).join(", ")}
+          </p>
         )}
         {/* Verify and map the properties if they are defined */}
-        {movie.cast && movie.cast.length > 0 && (
-          <p>Reparto: {movie.cast.map((actor) => actor.name).join(", ")}</p>
-        )}
+        {/* {movie.cast && movie.cast.length > 0 && (
+          <p>
+            <b>Reparto:</b> {movie.cast.map((actor) => actor.name).join(", ")}
+          </p>
+        )} */}
+        <p>
+          <b>Duración:</b> {movie.runtime} minutos
+        </p>
+        <p>
+          {" "}
+          <b>Recaudación:</b> ${movie.revenue}
+        </p>
+        <p>
+          <b>Presupuesto:</b> ${movie.budget}
+        </p>
+        <p>
+          <b>Estado:</b> {movie.status}
+        </p>
+        <p>
+          <b>Popularidad:</b> {movie.popularity}
+        </p>
+        <p>
+          <b>Compañía:</b> {movie.production_companies[0].name}
+        </p>
+        <p>
+          <b>País:</b> {movie.production_countries[0].name}
+        </p>
+        <p>
+          <b>Idioma:</b> {movie.spoken_languages[0].name}
+        </p>
+        <p>
+          <b>Adulto:</b> {movie.adult ? "Sí" : "No"}
+        </p>
+        <p>
+          <b>Idioma original:</b> {movie.original_language}
+        </p>
+        <p>
+          <b>Titulo original:</b> {movie.original_title}
+        </p>
+        <p>
+          <b>Calificación:</b> {movie.vote_count}
+        </p>
       </div>
     </div>
   );

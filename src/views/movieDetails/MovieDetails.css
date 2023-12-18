@@ -1,43 +1,43 @@
 /* MovieDetails.css */
 .movie-details-container {
-    display: flex;
-    height: 80vh; /*Makes the height 100% of viewport*/
-  }
-  
-  .poster {
-    /* width: 100%; */
-    height: 100%;
-    object-fit:cover; /* Adjust the image to cover the entire container*/
-    border-radius: 8px;
-  }
-  
-  .movie-info {
-    flex: 1;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  
-  .title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .overview {
-    font-size: 16px;
-    margin-bottom: 20px;
-  }
-  
-  .release-date,
-  .vote-average {
-    font-size: 14px;
-    margin-bottom: 10px;
-  }
-  
-  .loading {
-    text-align: center;
-    margin: 20px;
-    font-size: 18px;
-    color: #555;
-  }
-  
+  display: flex;
+  height: 80vh;
+}
+
+.poster {
+  /* width: 100%; */
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.movie-info {
+  flex: 1;
+  padding: 50px;
+  box-sizing: border-box;
+  line-height: 2rem;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.overview {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.release-date,
+.vote-average {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.loading {
+  text-align: center;
+  margin: 20px;
+  font-size: 18px;
+  color: #555;
+}

@@ -1,20 +1,18 @@
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-
-
 body {
-	font-family: 'Montserrat', sans-serif;
-	background: #e0e0e0;
-	color: #1d1d1d;
+  font-family: "Montserrat", sans-serif;
+  background: #e0e0e0;
+  color: #1d1d1d;
 }
 
 .container {
   width: 90%;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 40px auto 100px auto;
-
+  padding: 3rem;
 }

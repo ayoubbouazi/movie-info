@@ -1,0 +1,32 @@
+/* MovieSearch.css */
+.search-form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: #241744;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+form {
+  margin: auto;
+  width: 20%;
+  display: flex;
+  align-items: center;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  border: 5px solid #ccc;
+  border-radius: 25px;
+  flex-grow: 1;
+  color: #ccc;
+}
+
+input:focus {
+  outline: none;
+  color: #241744;
+}

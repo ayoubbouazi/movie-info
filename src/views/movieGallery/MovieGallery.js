@@ -5,28 +5,29 @@ import { Link } from "react-router-dom";
 
 import axios from "axios";
 import "./MovieGallery.css";
+import { SearchForm } from "../export";
 
 const MovieGallery = () => {
   const [movies, setMovies] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  // const moviesPerPage = 15;
-
-  const apiKey = "192e0b9821564f26f52949758ea3c473&language=es-MX";
+  const apiKey = '192e0b9821564f26f52949758ea3c473&language=es-MX';
 
   useEffect(() => {
-    const fetchMovies = async () => {
-      try {
-        const response = await axios.get(
-          `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&page=${currentPage}`
-        );
-        setMovies(response.data.results);
-      } catch (error) {
-        console.error("Error fetching movies:", error);
-      }
-    };
-
     fetchMovies();
   }, [apiKey, currentPage]);
+
+  const fetchMovies = async (searchTerm = '') => {
+    try {
+      const response = await axios.get(
+        `https://api.themoviedb.org/3/${
+          searchTerm !== '' ? 'search/movie' : 'discover/movie'
+        }?api_key=${apiKey}&query=${searchTerm}&page=${currentPage}`
+      );
+      setMovies(response.data.results);
+    } catch (error) {
+      console.error('Error fetching movies:', error);
+    }
+  };
 
   const handleNext = () => {
     setCurrentPage((prevPage) => prevPage + 1);
@@ -36,12 +37,17 @@ const MovieGallery = () => {
     setCurrentPage((prevPage) => (prevPage > 1 ? prevPage - 1 : 1));
   };
 
+  const handleSearch = (searchTerm) => {
+    setCurrentPage(1); // Restart the page when making a new search
+    fetchMovies(searchTerm);
+  };
+
   if (movies.length === 0) {
     return <p className="loading">Cargando...</p>;
   }
 
   return (
-    <>
+    <> <SearchForm onSearch={handleSearch} />
       <div className="container-movie-gallery">
         {movies.map((movie) => (
           <div key={movie.id} className="movie">
