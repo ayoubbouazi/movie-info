@@ -1,10 +1,21 @@
-import './App.css';
+import "./App.css";
+// import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
+import { MovieDetails, MovieGallery } from "./views/export";
 
 function App() {
   return (
-    <div>
-      <h1>APP</h1>
-    </div>
+    <>
+      <Router>
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<MovieGallery />} />
+            <Route path="/movie/:id" element={<MovieDetails />} />
+          </Routes>
+        </div>
+      </Router>
+    </>
   );
 }
 
