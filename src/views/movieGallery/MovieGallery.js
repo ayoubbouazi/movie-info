@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 import axios from "axios";
 import "./MovieGallery.css";
-import { SearchForm } from "../export";
+import { MovieSearch } from "../export";
 
 const MovieGallery = () => {
   const [movies, setMovies] = useState([]);
@@ -49,7 +49,7 @@ const MovieGallery = () => {
   return (
     <>
       {" "}
-      <SearchForm onSearch={handleSearch} />
+      <MovieSearch onSearch={handleSearch} />
       <div className="container-movie-gallery">
         {movies.map((movie) => (
           <div key={movie.id} className="movie">
