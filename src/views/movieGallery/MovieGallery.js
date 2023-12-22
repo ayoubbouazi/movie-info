@@ -10,22 +10,22 @@ import { SearchForm } from "../export";
 const MovieGallery = () => {
   const [movies, setMovies] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const apiKey = '192e0b9821564f26f52949758ea3c473&language=es-MX';
+  const apiKey = "192e0b9821564f26f52949758ea3c473&language=es-MX";
 
   useEffect(() => {
     fetchMovies();
   }, [apiKey, currentPage]);
 
-  const fetchMovies = async (searchTerm = '') => {
+  const fetchMovies = async (searchTerm = "") => {
     try {
       const response = await axios.get(
         `https://api.themoviedb.org/3/${
-          searchTerm !== '' ? 'search/movie' : 'discover/movie'
+          searchTerm !== "" ? "search/movie" : "discover/movie"
         }?api_key=${apiKey}&query=${searchTerm}&page=${currentPage}`
       );
       setMovies(response.data.results);
     } catch (error) {
-      console.error('Error fetching movies:', error);
+      console.error("Error fetching movies:", error);
     }
   };
 
@@ -47,7 +47,9 @@ const MovieGallery = () => {
   }
 
   return (
-    <> <SearchForm onSearch={handleSearch} />
+    <>
+      {" "}
+      <SearchForm onSearch={handleSearch} />
       <div className="container-movie-gallery">
         {movies.map((movie) => (
           <div key={movie.id} className="movie">
@@ -62,7 +64,10 @@ const MovieGallery = () => {
           </div>
         ))}
         <div className="pagination">
-          <button onClick={handlePrev}>Anterior</button>
+          <button onClick={handlePrev} disabled={currentPage === 1}>
+            Anterior
+          </button>
+          <span>Página {currentPage}</span>
           <button onClick={handleNext}>Siguiente</button>
         </div>
       </div>

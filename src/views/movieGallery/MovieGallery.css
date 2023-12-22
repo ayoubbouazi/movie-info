@@ -29,6 +29,7 @@
   justify-content: center;
   gap: 20px;
   padding: 10px;
+  font-weight: 600;
 }
 
 .pagination button {
@@ -43,15 +44,18 @@
   background: #241744;
   color: #fff;
   border-radius: 100px;
-  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   transition: 0.3s ease all;
+}
+.pagination span {
+  font-size: 14px;
+  margin: 10px;
+  color: #fff;
 }
 
 .pagination button:hover {
   background: #137c32;
 }
-
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -67,5 +71,13 @@
 
   .pagination {
     gap: 10px;
+  }
+  .pagination span {
+    font-size: 10px;
+  }
+
+  .pagination button {
+    height: 30px;
+    width: 100px;
   }
 }
