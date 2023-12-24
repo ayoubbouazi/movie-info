@@ -21,7 +21,7 @@ const MovieGallery = () => {
         searchTerm !== "" ? "search/movie" : "discover/movie"
       }?api_key=${apiKey}&query=${searchTerm}&page=${currentPage}`;
 
-      // Agregar filtros seleccionados a la URL de la API
+      // Add selected filters to the API URL
       Object.entries(selectedFilters).forEach(([key, value]) => {
         apiUrl += `&${key}=${value}`;
       });
@@ -29,14 +29,14 @@ const MovieGallery = () => {
       const response = await axios.get(apiUrl);
       const moviesData = response.data.results;
 
-      // Obtener información de videos para cada película
+      // Get videos information for each movie
       const moviesWithVideos = await Promise.all(
         moviesData.map(async (movie) => {
           const videosResponse = await axios.get(
             `https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=${apiKey}`
           );
 
-          // Agregar información de video (trailer) a la película
+          // Add video information (trailer) to the movie
           return {
             ...movie,
             videos: videosResponse.data.results,
@@ -60,8 +60,6 @@ const MovieGallery = () => {
 
   const handleSearch = (searchTerm, filters) => {
     setCurrentPage(1);
-    // Actualizar los filtros seleccionados
-    setSelectedFilters(filters);
     fetchMovies(searchTerm);
   };
 
@@ -98,8 +96,6 @@ const MovieGallery = () => {
               )) || (
                 <div className="trailer no">
                   <a>No hay Trailer</a>
-
-                  {/* <a disabled >No hay trailer</a> */}
                 </div>
               )}
             </div>
