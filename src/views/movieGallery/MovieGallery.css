@@ -4,13 +4,18 @@
   gap: 40px;
 }
 
-.container .movie {
+/* .container .movie {
   text-align: center;
-}
+} */
 
 .container .movie .title {
   font-size: 16px;
   font-weight: 600;
+  height: 48px;
+}
+.container .movie .rating {
+  margin-bottom: 10px;
+  /* text-align: left; */
 }
 
 .container .movie .poster {
@@ -32,7 +37,8 @@
   font-weight: 600;
 }
 
-.pagination button {
+.pagination button,
+.trailer a {
   cursor: pointer;
   border: none;
   display: flex;
@@ -40,12 +46,17 @@
   justify-content: center;
   text-align: center;
   height: 50px;
-  width: 200px;
+  width: 250px;
   background: #241744;
   color: #fff;
   border-radius: 100px;
   font-weight: 600;
   transition: 0.3s ease all;
+  text-decoration: none;
+}
+.no a{
+  font-size: 12px;
+  background: #6b5b9c;
 }
 .pagination span {
   font-size: 14px;
