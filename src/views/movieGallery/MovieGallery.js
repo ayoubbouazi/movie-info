@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./MovieGallery.css";
-import { MovieSearch } from "../export";
+import { MovieSearch, MovieFilter } from "../export";
 
 const MovieGallery = () => {
   const [movies, setMovies] = useState([]);
@@ -70,6 +70,7 @@ const MovieGallery = () => {
   return (
     <>
       <MovieSearch onSearch={handleSearch} />
+      {/* <MovieFilter/> */}
       <div className="container-movie-gallery">
         {movies.map((movie) => (
           <div key={movie.id} className="movie">
@@ -86,6 +87,7 @@ const MovieGallery = () => {
               {(movie.videos && movie.videos.length > 0 && (
                 <div className="trailer">
                   <a
+                    className="trailer-link"
                     href={`https://www.youtube.com/watch?v=${movie.videos[0].key}`}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -94,7 +96,7 @@ const MovieGallery = () => {
                   </a>
                 </div>
               )) || (
-                <div className="trailer no">
+                <div className="trailer no-link">
                   <a>No hay Trailer</a>
                 </div>
               )}

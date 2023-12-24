@@ -28,7 +28,9 @@
   position: fixed;
   bottom: 0;
   left: 0;
-  background: #100a1f;
+  /* background: #100a1f; */
+  background: #423b54;
+
   width: 100%;
   display: flex;
   justify-content: center;
@@ -54,9 +56,9 @@
   transition: 0.3s ease all;
   text-decoration: none;
 }
-.no a{
+.no-link a{
   font-size: 12px;
-  background: #6b5b9c;
+  background: #978fb1;
 }
 .pagination span {
   font-size: 14px;
@@ -64,8 +66,8 @@
   color: #fff;
 }
 
-.pagination button:hover {
-  background: #137c32;
+.pagination button:hover, .trailer .trailer-link:hover {
+  background: #6b5b9c;
 }
 
 /* Responsive */
