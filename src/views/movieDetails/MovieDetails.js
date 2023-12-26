@@ -37,64 +37,62 @@ const MovieDetails = () => {
         className="poster"
       />
       <div className="movie-info">
-        <h2 className="title">{movie.title}</h2>
-        <p className="overview">{movie.overview}</p>
-
-        <p className="release-date">
-          <b>Fecha de lanzamiento:</b> {movie.release_date}
-        </p>
-        <p className="vote-average">
-          <b>Calificación promedio:</b> {movie.vote_average}
-        </p>
-        {/*Verify and map the properties if they are defined */}
-        {movie.genres && movie.genres.length > 0 && (
+        <h2 className="title">{movie.title}</h2>{" "}
+        <div className="info-subtitle">
           <p>
-            <b>Géneros:</b> {movie.genres.map((genre) => genre.name).join(", ")}
+            <span>⭐ {movie.vote_average}</span>
+            <span>{movie.release_date.split("-")[0]}</span>
+            <span>{movie.runtime} min </span>
           </p>
-        )}
-        {/* Verify and map the properties if they are defined */}
-        {/* {movie.cast && movie.cast.length > 0 && (
-          <p>
-            <b>Reparto:</b> {movie.cast.map((actor) => actor.name).join(", ")}
-          </p>
-        )} */}
-        <p>
-          <b>Duración:</b> {movie.runtime} minutos
-        </p>
-        <p>
-          {" "}
-          <b>Recaudación:</b> ${movie.revenue}
-        </p>
-        <p>
-          <b>Presupuesto:</b> ${movie.budget}
-        </p>
-        <p>
-          <b>Estado:</b> {movie.status}
-        </p>
-        <p>
-          <b>Popularidad:</b> {movie.popularity}
-        </p>
-        <p>
-          <b>Compañía:</b> {movie.production_companies[0].name}
-        </p>
-        <p>
-          <b>País:</b> {movie.production_countries[0].name}
-        </p>
-        <p>
-          <b>Idioma:</b> {movie.spoken_languages[0].name}
-        </p>
-        <p>
-          <b>Adulto:</b> {movie.adult ? "Sí" : "No"}
-        </p>
-        <p>
-          <b>Idioma original:</b> {movie.original_language}
-        </p>
-        <p>
-          <b>Titulo original:</b> {movie.original_title}
-        </p>
-        <p>
-          <b>Calificación:</b> {movie.vote_count}
-        </p>
+        </div>
+        <div className="overview">
+          <p>{movie.overview}</p>
+        </div>
+        <div className="more-details">
+          <div className="release-date">
+            <b>Fecha de lanzamiento:</b>
+          </div>
+          <div>{movie.release_date}</div>
+          <div>
+            <b>Titulo original:</b>
+          </div>
+          <div>{movie.original_title}</div>
+          <div>
+            <b>País:</b>
+          </div>
+          <div>{movie.production_countries[0].name}</div>
+          <div>
+            <b>Idioma:</b>
+          </div>
+          <div>{movie.spoken_languages[0].name}</div>
+          {/*Verify and map the properties if they are defined */}
+          {/* {movie.genres && movie.genres.length > 0 && (
+            <p>
+              <b>Géneros:</b>{" "}
+              {movie.genres.map((genre) => genre.name).join(", ")}
+            </p>
+          )}{" "} */}
+          <div>
+            <b>Adulto:</b>
+          </div>
+          <div>{movie.adult ? "Sí" : "No"}</div>
+          <div>
+            <b>Estado:</b>
+          </div>
+          <div>{movie.status}</div>
+          <div>
+            <b>Idioma original:</b>
+          </div>
+          <div>{movie.original_language}</div>
+          <div>
+            <b>Popularidad:</b>
+          </div>
+          <div>{movie.popularity}</div>
+          <div>
+            <b>Compañía:</b>
+          </div>
+          <div>{movie.production_companies[0].name}</div>
+        </div>
       </div>
     </div>
   );
